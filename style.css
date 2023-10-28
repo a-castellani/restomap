@@ -1,0 +1,283 @@
+:root {
+  --color-violet: #5c4b99;
+  --color-red: #b31312;
+  --color-blue: #2b2a4c;
+  --color-green: #17594a;
+  --color-beige: #eee2de;
+  --color-beige-dark: #ea906c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  color: var(--color-light--2);
+  font-weight: 400;
+  line-height: 1.6;
+  height: 100vh;
+  overscroll-behavior-y: none;
+
+  background-color: #fff;
+  padding: 2.5rem;
+
+  display: flex;
+}
+
+/* GENERAL */
+a:link,
+a:visited {
+  color: var(--color-dark--2);
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+.sidemap {
+  width: 65%;
+}
+/* MAP */
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 35%;
+  background-color: var(--color-ligth--1);
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.logo {
+  height: 180px;
+  align-self: center;
+}
+
+/*Restaurant cards*/
+.restaurants {
+  list-style: none;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.restaurants::-webkit-scrollbar {
+  width: 0;
+}
+
+.icon_restaurant {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
+.restaurant {
+  background-image: linear-gradient(180deg, var(--color-beige), white);
+  border: 2px solid var(--color-red);
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgba(121, 13, 13, 0.2);
+  padding: 1.5rem 2.25rem;
+  margin-bottom: 1.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--color-blue);
+}
+
+.restaurant__title {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.restaurant__details {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.restaurant_description {
+  margin-left: 1em;
+  width: 100%;
+}
+
+/* NEW FORM */
+.form_2 {
+  position: absolute;
+  top: 30%;
+  right: 35%;
+  z-index: 9999;
+  background-color: white;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 400px;
+  padding: 20px;
+  width: 420px;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1.5rem;
+}
+
+.form_2.hidden {
+  transform: translateY(-30rem);
+  height: 0;
+  padding: 0 2.25rem;
+  margin-bottom: 0;
+  opacity: 0;
+}
+
+.form__title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.close__form {
+  border-radius: 5px;
+  border: 1px solid var(--color-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 12px;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 10px;
+  width: 12%;
+  background-color: var(--color-blue);
+  color: white;
+}
+.subtitle {
+  color: var(--color-blue);
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.ic1 {
+  margin-top: 40px;
+}
+
+.ic2 {
+  margin-top: 30px;
+}
+
+.selection {
+  background-color: var(--color-beige-dark);
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: var(--color-blue);
+  line-height: 14px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+.input {
+  background-color: var(--color-beige-dark);
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: var(--color-blue);
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+.cut {
+  background-color: white;
+  border-radius: 10px;
+  height: 20px;
+  left: 20px;
+  position: absolute;
+  top: -20px;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 76px;
+}
+.cut-short {
+  width: 50px;
+}
+.input:focus ~ .cut,
+.input:not(:placeholder-shown) ~ .cut {
+  transform: translateY(8px);
+}
+
+.placeholder {
+  color: var(--color-blue);
+  font-size: 1.3rem;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+.input:focus ~ .placeholder,
+.input:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+.input:not(:placeholder-shown) ~ .placeholder {
+  color: var(--color-dark--1);
+}
+.input:focus ~ .placeholder {
+  color: var(--color-light--3);
+}
+.submit {
+  background-color: var(--color-red);
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 2rem;
+  outline: 0;
+  text-align: center;
+  width: 25%;
+}
+
+.submit:active {
+  background-color: var(--color-blue);
+}
+
+/* Popups */
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-blue);
+  color: white;
+  border-radius: 5px;
+  padding-right: 0.6rem;
+}
+
+.leaflet-popup .leaflet-popup-content {
+  font-size: 1.5rem;
+}
+
+.leaflet-popup .leaflet-popup-tip {
+  background-color: var(--color-blue);
+}
