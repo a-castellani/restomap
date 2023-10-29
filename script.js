@@ -30,7 +30,7 @@ const closForm = document.querySelector('.close__form');
 /// APP ARCHITECTURE /////////
 class App {
   #map;
-  #mapZoom = 13;
+  #mapZoom = 14;
   #mapEvent;
   #workouts = [];
   #restaurants = [];
@@ -127,7 +127,7 @@ class App {
 
     this.#restaurants.push(restaurant);
 
-    console.log(this.#restaurants);
+    // console.log(this.#restaurants);
     this._renderRestaurantMarker(restaurant);
     this._renderRestaurant(restaurant);
     this._hideForm();
@@ -199,9 +199,15 @@ class App {
     localStorage.setItem('restaurants', JSON.stringify(this.#restaurants));
   }
   _getLocalStorage() {
+    const noRestaurant = `<h1>Click on the map at the location where you'd like to add your favorite restaurant.</h1>`;
     const data = JSON.parse(localStorage.getItem('restaurants'));
-    if (!data) return; // Verify if there is data or not to don't get undefined
+    if (!data) {
+      containerRestaurants.insertAdjacentHTML('beforebegin', noRestaurant);
+      return;
+    }
+    // Verify if there is data or not to don't get undefined
     this.#restaurants = data;
+
     this.#restaurants.forEach(restaurant => {
       this._renderRestaurant(restaurant);
     });

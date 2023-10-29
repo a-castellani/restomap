@@ -1,5 +1,5 @@
-App to map your favourites restaurants.
+An app to map your favorite restaurants.
 
-Made it after followed the course The complete JavaScript course: from Zero to Expert!(Udemy) with Jonas Schmedtmann.
+I created it after following 'The Complete JavaScript Course: From Zero to Expert!' on Udemy with Jonas Schmedtmann.
 
-Using JavaScript, Leaflet library, and local storage for saving the data.
+I used JavaScript, the Leaflet library, and local storage to save the data
